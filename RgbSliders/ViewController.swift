@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var background: UIView!
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redSlider: UISlider!
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var saturationBlueLable: UILabel!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         colorView.layer.cornerRadius = 15
         setupSaturationLabel()
