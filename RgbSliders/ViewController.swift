@@ -9,9 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var colorView: UIView!
+    
+    @IBOutlet var alphaRedOutlet: UILabel!
+    @IBOutlet var alphaGreenOutlet: UILabel!
+    @IBOutlet var alphaBlueOutlet: UILabel!
+    
+    @IBOutlet var redSliderOutlet: UISlider!
+    @IBOutlet var greenSliderOutlet: UISlider!
+    @IBOutlet var blueSliderOutlet: UISlider!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
