@@ -48,7 +48,7 @@ class GradientView: UIView {
         
         }
         private func setupGradientColors() {
-            if let startColor = startColor,
+             if let startColor = startColor,
                 let midleColor = midleColor,
                 let endColor = endColor
             {
