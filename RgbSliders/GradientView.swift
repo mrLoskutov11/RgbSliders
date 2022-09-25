@@ -31,7 +31,6 @@ class GradientView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupGradient()
@@ -45,13 +44,12 @@ class GradientView: UIView {
     private func setupGradient() {
         self.layer.addSublayer(gradientLaer)
         setupGradientColors()
-        
-        }
-        private func setupGradientColors() {
+    }
+    private func setupGradientColors() {
              if let startColor = startColor,
                 let midleColor = midleColor,
                 let endColor = endColor
-            {
+        {
                 gradientLaer.colors = [
                     startColor.cgColor,
                     midleColor.cgColor,
