@@ -36,6 +36,12 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 15
         setValue()
         setColor()
+        initDelegatesTextFields()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -56,6 +62,12 @@ class ViewController: UIViewController {
     @IBAction func doneBotton() {
         dismiss(animated: true)
         delegate.getColor(colorView.backgroundColor ?? .white)
+    }
+    
+    private func initDelegatesTextFields() {
+        redColorTF.delegate = self
+        greenColorTF.delegate = self
+        blueColorTF.delegate = self
     }
     
     private func setColor() {
@@ -79,6 +91,24 @@ class ViewController: UIViewController {
     
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let value = Float(textField.text ?? ""), value >= 0, value <= 1 {
+            switch textField {
+            case redColorTF:
+                redSlider.value = value
+                saturationRedLable.text = string(from: redSlider)
+            case greenColorTF:
+                greenSlider.value = value
+                saturationGreenLable.text = string(from: greenSlider)
+            default:
+                blueSlider.value = value
+                saturationBlueLable.text = string(from: blueSlider)
+            }
+        }
     }
 }
 
