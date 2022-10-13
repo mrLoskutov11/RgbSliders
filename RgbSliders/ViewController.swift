@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         greenColorTF.delegate = self
         blueColorTF.delegate = self
     }
-    
+     
     private func setColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
