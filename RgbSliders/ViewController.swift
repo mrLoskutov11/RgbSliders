@@ -7,6 +7,10 @@
 
 import UIKit
 
+//protocol
+
+
+
 class ViewController: UIViewController {
 
     @IBOutlet var colorView: UIView!
@@ -14,6 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet var saturationRedLable: UILabel!
     @IBOutlet var saturationGreenLable: UILabel!
     @IBOutlet var saturationBlueLable: UILabel!
+    
+    @IBOutlet var redColorTF: UITextField!
+    @IBOutlet var greenColorTF: UITextField!
+    @IBOutlet var blueColorTF: UITextField!
     
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
