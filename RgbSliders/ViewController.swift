@@ -43,10 +43,13 @@ class ViewController: UIViewController {
         switch sender {
         case redSlider:
             saturationRedLable.text = string(from: sender)
+            redColorTF.text = string(from: sender)
         case greenSlider:
             saturationGreenLable.text = string(from: sender)
+            greenColorTF.text = string(from: sender)
         default:
             saturationBlueLable.text = string(from: sender)
+            blueColorTF.text = string(from: sender)
         }
     }
     
