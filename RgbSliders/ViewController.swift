@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     var delegate: ViewControllerDelegate!
     var mainViewColor: UIColor!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 15
