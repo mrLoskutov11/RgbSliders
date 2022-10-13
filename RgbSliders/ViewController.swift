@@ -19,12 +19,15 @@ class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    var delegate: ViewControllerDelegate!
+    var mainViewColor: UIColor!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 15
-        setColor()
         setValue()
+        setColor()
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -38,6 +41,12 @@ class ViewController: UIViewController {
             saturationBlueLable.text = string(from: sender)
         }
     }
+    
+    @IBAction func doneBotton() {
+        dismiss(animated: true)
+        delegate.getColor(colorView.backgroundColor ?? .white)
+    }
+    
     private func setColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
@@ -46,12 +55,30 @@ class ViewController: UIViewController {
             alpha: 1
         )
     }
+    
     private func setValue() {
+        redSlider.value = Float(mainViewColor.red)
+        greenSlider.value = Float(mainViewColor.green)
+        blueSlider.value = Float(mainViewColor.blue)
+        
         saturationRedLable.text = string(from: redSlider)
         saturationGreenLable.text = string(from: greenSlider)
         saturationBlueLable.text = string(from: blueSlider)
     }
+    
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+}
+
+extension UIColor {
+    var red: CGFloat {
+        CIColor(color: self).red
+    }
+    var green: CGFloat {
+        CIColor(color: self).green
+    }
+    var blue: CGFloat {
+        CIColor(color: self).blue
     }
 }
