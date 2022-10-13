@@ -96,18 +96,13 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let value = Float(textField.text ?? ""), value >= 0, value <= 1 {
             switch textField {
             case redColorTF:
-                redSlider.value = value
                 saturationRedLable.text = string(from: redSlider)
             case greenColorTF:
-                greenSlider.value = value
                 saturationGreenLable.text = string(from: greenSlider)
             default:
-                blueSlider.value = value
                 saturationBlueLable.text = string(from: blueSlider)
-            }
         }
     }
 }
